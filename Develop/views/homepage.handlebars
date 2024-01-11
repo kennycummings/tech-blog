@@ -1,0 +1,10 @@
+{{#each posts}}
+  <article class="blog-post">
+    <h2>{{title}}</h2>
+    <p class="meta">Posted by {{author}} on {{formattedDate date_created}}</p>
+    <div class="content">
+      {{truncate content}}
+    </div>
+    <a href="/post/{{id}}">Read more</a>
+  </article>
+{{/each}}
