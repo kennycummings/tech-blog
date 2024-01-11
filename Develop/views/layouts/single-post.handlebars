@@ -1,0 +1,27 @@
+<article class="blog-post">
+  <h2>{{title}}</h2>
+  <p class="meta">Posted by {{author}} on {{formattedDate date_created}}</p>
+  <div class="content">
+    {{{content}}}
+  </div>
+
+  <section class="comments">
+    <h3>Comments</h3>
+    {{#each comments}}
+      <div class="comment">
+        <p class="meta">Comment by {{commenter}} on {{formattedDate date_created}}</p>
+        <p>{{text}}</p>
+      </div>
+    {{/each}}
+  </section>
+
+  {{#if loggedIn}}
+    <section class="add-comment">
+      <h3>Add a Comment</h3>
+      <form id="comment-form">
+        <textarea name="comment" rows="4" placeholder="Write your comment..."></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  {{/if}}
+</article>
