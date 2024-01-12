@@ -1,5 +1,4 @@
 const router = require('express').Router();
-// controllers/api/homeRoutes.js
 const { Post, User, Comment } = require('../models');
 
 // Route to render the homepage with a list of posts
@@ -10,17 +9,17 @@ router.get('/', async (req, res) => {
       order: [['date_created', 'DESC']],
     });
 
-    const formattedPosts = posts.map(post => {
-      return {
-        id: post.id,
-        title: post.title,
-        content: post.content,
-        author: post.User.name,
-        date_created: post.date_created,
-      };
-    });
+    const formattedPosts = posts.map(post => ({
+      id: post.id,
+      title: post.title,
+      content: post.content,
+      author: post.User.name,
+      date_created: post.date_created,
+    }));
 
-    res.render('homepage', { posts: formattedPosts, loggedIn: req.session.logged_in });
+    const loggedIn = req.session.logged_in || false; // Check for logged_in status
+
+    res.render('homepage', { posts: formattedPosts, loggedIn });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to retrieve posts' });

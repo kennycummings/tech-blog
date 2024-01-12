@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/style.css">
-  <title>KC Tech Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>KC Tech Blog</title>
 </head>
+
 <body>
-  <header>
-    <h1>KC Tech Blog</h1>
-    <h2>For all things tech!</h2>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        {{#if loggedIn}}
-          <li><a href="/logout">Logout</a></li>
-        {{else}}
-          <li><a href="/signup">Sign Up</a></li>
-          <li><a href="/login">Login</a></li>
-        {{/if}}
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1>KC Tech Blog</h1>
+        <h2>For all things tech!</h2>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                {{#if loggedIn}}
+                <li><a href="/logout">Logout</a></li>
+                {{else}}
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/login">Login</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    {{{body}}}
-  </main>
+    <main>
+        {{{body}}}
+    </main>
 
-  <footer>
-    <p>&copy; 2024 KC Tech Blog</p>
-  </footer>
+    <footer>
+        <p>&copy; 2024 KC Tech Blog</p>
+    </footer>
 </body>
+
 </html>
