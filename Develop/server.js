@@ -2,15 +2,16 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
-const path = require('path')
+const path = require('path');
+const { sequelize } = require('./config/connection');
+const associations = require('./models/associations');
 
-const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ });
+const hbs = exphbs.create();
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -21,8 +22,8 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
@@ -33,6 +34,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
+// Test the database connection here
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Database connection successful');
+    return sequelize.sync({ force: false });
+  })
+  .then(() => {
+    console.log('Database synced successfully');
+    app.listen(PORT, () => console.log('Now listening'));
+  })
+  .catch((error) => {
+    console.error('Error during Sequelize initialization:', error);
+  });
