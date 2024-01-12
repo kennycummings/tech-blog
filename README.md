@@ -1,4 +1,4 @@
-# tech-blog
+# Tech Blog
 
 ## Description
 The Tech Blog is a web application that allows users to create, edit, and comment on blog posts related to technology. It provides a platform for tech enthusiasts to share their insights, experiences, and knowledge with the community.
