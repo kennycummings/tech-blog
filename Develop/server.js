@@ -1,9 +1,9 @@
+const sequelize = require('./config/connection');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const path = require('path');
-const { sequelize } = require('./config/connection');
 const associations = require('./models/associations');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -16,7 +16,6 @@ const hbs = exphbs.create();
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// Move the sequelize.authenticate and sequelize.sync calls here
 sequelize
   .authenticate()
   .then(() => {
@@ -25,6 +24,8 @@ sequelize
   })
   .then(() => {
     console.log('Database synced successfully');
+
+
     // Configure and use SequelizeStore
     const sess = {
       secret: 'Super secret secret',
