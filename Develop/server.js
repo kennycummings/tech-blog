@@ -16,25 +16,7 @@ const hbs = exphbs.create();
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-const sess = {
-  secret: 'Super secret secret',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize,
-  }),
-};
-
-app.use(session(sess));
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(routes);
-
-// Test the database connection here
+// Move the sequelize.authenticate and sequelize.sync calls here
 sequelize
   .authenticate()
   .then(() => {
@@ -43,6 +25,25 @@ sequelize
   })
   .then(() => {
     console.log('Database synced successfully');
+    // Configure and use SequelizeStore
+    const sess = {
+      secret: 'Super secret secret',
+      cookie: {},
+      resave: false,
+      saveUninitialized: true,
+      store: new SequelizeStore({
+        db: sequelize,
+      }),
+    };
+
+    app.use(session(sess));
+
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
+    app.use(express.static(path.join(__dirname, 'public')));
+
+    app.use(routes);
+
     app.listen(PORT, () => console.log('Now listening'));
   })
   .catch((error) => {
