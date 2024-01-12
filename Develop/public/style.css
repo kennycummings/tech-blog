@@ -43,3 +43,19 @@ article {
 .add-comment {
   margin-top: 20px;
 }
+
+nav {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+}
+
+nav li {
+  display: inline; /* Display list items horizontally */
+  margin-right: 15px; /* Add spacing between items if needed */
+}
+
+/* Add this style rule to make the links white */
+nav a {
+  color: #DCF2F1;
+  text-decoration: none; /* Remove underline */
+}
