@@ -1,5 +1,5 @@
 const User = require('./User');
-const Post = require('./Post'); // Import Post before Comment
+const Post = require('./Post');
 const Comment = require('./Comment');
 const Project = require('./Project');
 const associations = require('./associations');

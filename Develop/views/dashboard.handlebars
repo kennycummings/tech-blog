@@ -59,6 +59,19 @@
 
     <main>
         <!-- Add dashboard content here -->
+
+        <!-- Form for creating a new post -->
+        <form action="/dashboard/create" method="POST">
+            <label for="postTitle">Post Title:</label>
+            <input type="text" id="postTitle" name="postTitle" required>
+
+            <label for="postContent">Post Content:</label>
+            <textarea id="postContent" name="postContent" rows="4" required></textarea>
+
+            <button type="submit">Submit Post</button>
+        </form>
+
+        <!-- Existing articles go here -->
         <article>
             <h2>Post Title 1</h2>
             <p>Post content goes here...</p>

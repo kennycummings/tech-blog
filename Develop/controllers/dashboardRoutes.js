@@ -33,6 +33,28 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route to handle creating a new post
+router.post('/create', async (req, res) => {
+  try {
+    // Get the post data from the form
+    const { postTitle, postContent } = req.body;
+
+    // Create a new post in the database
+    const newPost = await Post.create({
+      title: postTitle,
+      content: postContent,
+      // Add any other necessary fields
+    });
+
+    // Redirect to the dashboard or the newly created post
+    res.redirect('/dashboard'); // Change this as needed
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
 // Other routes for the dashboard if needed
 
 module.exports = router;
