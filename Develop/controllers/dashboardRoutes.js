@@ -39,12 +39,13 @@ router.post('/create', async (req, res) => {
     // Get the post data from the form
     const { postTitle, postContent } = req.body;
 
-    // Create a new post in the database
-    const newPost = await Post.create({
-      title: postTitle,
-      content: postContent,
-      // Add any other necessary fields
-    });
+const userId = req.session.userId; // Retrieve user_id from session
+
+const newPost = await Post.create({
+  title: postTitle,
+  content: postContent,
+  user_id: userId, // Assign user_id to the post
+});
 
     // Redirect to the dashboard or the newly created post
     res.redirect('/dashboard'); // Change this as needed
