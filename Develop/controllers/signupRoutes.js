@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 });
 
 // Route to handle signup form submission
-router.post('/signup', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     // Extract user input from the request body
     const { name, email, password } = req.body;
