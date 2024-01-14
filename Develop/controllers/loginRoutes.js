@@ -10,17 +10,35 @@ router.get('/', (req, res) => {
 
 // Route to handle login form submission
 router.post('/', async (req, res) => {
+  console.log(req.body)
   try {
-    const { email, password } = req.body;
+    const userData = await User.findOne({ where: { email: req.body.email } });
+      console.log(userData)
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
 
-    // Implement login logic here
-    // Example: Check if the user with the given email and password exists
+    const validPassword = await userData.checkPassword(req.body.password);
 
-    // If login is successful, you might redirect to the dashboard
-    res.redirect('/dashboard');
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(400).json(err);
   }
 });
 

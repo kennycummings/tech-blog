@@ -2,7 +2,7 @@ const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
 const Project = require('./Project');
-const associations = require('./associations');
+// const associations = require('./associations');
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
@@ -27,7 +27,7 @@ Comment.belongsTo(Post, {
   foreignKey: 'post_id',
 });
 
-module.exports = { User, Post, Comment, Project, associations };
+module.exports = { User, Post, Comment, Project };
 
 
 // 'use strict';

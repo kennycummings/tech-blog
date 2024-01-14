@@ -45,10 +45,11 @@ sequelize
     app.use(express.static(path.join(__dirname, 'public')));
 
     // Add routes middleware after initializing other middleware
-    app.use('/dashboard', dashboardRoutes);
-    app.use('/login', loginRoutes);
-    app.use('/signup', signupRoutes);
-    app.use('/', homeRoutes);
+    // app.use('/dashboard', dashboardRoutes);
+    // app.use('/login', loginRoutes);
+    // app.use('/signup', signupRoutes);
+    // app.use('/', homeRoutes);
+    app.use('/',require('./controllers'))
 
     app.listen(PORT, () => console.log('Now listening'));
   })

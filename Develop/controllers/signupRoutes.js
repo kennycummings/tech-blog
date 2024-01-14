@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
     });
 
     // Redirect to the dashboard after successful signup
-    res.redirect('/dashboard');
+    res.render('dashboard');
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Internal server error' });

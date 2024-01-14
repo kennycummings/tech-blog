@@ -19,9 +19,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            validate: {
-                len: [8]
-            },
         },
         password: {
             type: DataTypes.STRING,
@@ -44,5 +41,7 @@ User.init(
         timestamps: false,
     }
 );
+
+// need hooks for password encryption; refer to miniproject
 
 module.exports = User;
