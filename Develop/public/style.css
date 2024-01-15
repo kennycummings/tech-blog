@@ -66,3 +66,7 @@ nav a {
   color: #DCF2F1;
   text-decoration: none; /* Remove underline */
 }
+
+.navbar-logo {
+  min-width: 200px;
+}
