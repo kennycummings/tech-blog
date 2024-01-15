@@ -9,18 +9,37 @@ header {
   background-color: #365486;
   color: #DCF2F1;
   padding: 10px;
-  text-align: right; /* Align text to the right */
-  display: flex; /* Enable flex container properties */
-  justify-content: space-between; /* Justify content with space between elements */
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* Add this style rule to make the links black */
+/* Override Bootstrap styles for header links */
 header a {
   color: #DCF2F1;
 }
 
+/* Override Bootstrap styles for navbar background and font color */
+.navbar-light .navbar-toggler-icon {
+  background-color: #DCF2F1;
+}
+
+.navbar-light .navbar-toggler {
+  border-color: #DCF2F1;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #DCF2F1;
+}
+
+.navbar-light .navbar-toggler:focus,
+.navbar-light .navbar-toggler:active {
+  outline: none;
+  box-shadow: none;
+}
+
 footer {
-  color:#DCF2F1;
+  color: #DCF2F1;
   background-color: #365486;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -32,7 +51,7 @@ main {
 }
 
 article {
-  background-color:black;
+  background-color: black;
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -52,19 +71,20 @@ article {
 }
 
 nav {
-  list-style: none; /* Remove default list styles */
-  padding: 0; /* Remove default padding */
+  list-style: none;
+  padding: 0;
 }
 
 nav li {
-  display: inline; /* Display list items horizontally */
-  margin-right: 15px; /* Add spacing between items if needed */
+  display: inline;
+  margin-right: 15px;
 }
 
-/* Add this style rule to make the links white */
+/* Override Bootstrap styles for navbar links */
 nav a {
   color: #DCF2F1;
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
+  background-color: #365486;
 }
 
 .navbar-logo {
