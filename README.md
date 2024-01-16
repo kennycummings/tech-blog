@@ -38,3 +38,6 @@ Tutor Armando Osorio provided valuable insights and guidance during the developm
 
 ## Deployment Link
 https://kc-tech-blog.onrender.com/
+
+## Screenshot
+<img src="./public/images/kc-tech-blog-screenshot.png" alt="Homepage">
