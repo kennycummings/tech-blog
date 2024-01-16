@@ -84,9 +84,28 @@ nav li {
 nav a {
   color: #DCF2F1;
   text-decoration: none;
-  background-color: #365486;
+}
+
+nav b {
+  background-color: #DCF2F1;
 }
 
 .navbar-logo {
-  min-width: 200px;
+  min-width: 100px;
+}
+
+li a:hover {
+  background-color: transparent;
+}
+
+.navbar-toggler {
+  color: #DCF2F1;
+}
+
+.navbar-toggler-icon {
+  color: #DCF2F1;
+}
+
+element.style {
+  background-color: white;
 }
