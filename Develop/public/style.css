@@ -5,6 +5,7 @@ body {
   background-color: whitesmoke;
 }
 
+/* Override Bootstrap styles for header */
 header {
   background-color: #365486;
   color: #DCF2F1;
@@ -17,25 +18,6 @@ header {
 /* Override Bootstrap styles for header links */
 header a {
   color: #DCF2F1;
-}
-
-/* Override Bootstrap styles for navbar background and font color */
-.navbar-light .navbar-toggler-icon {
-  background-color: #DCF2F1;
-}
-
-.navbar-light .navbar-toggler {
-  border-color: #DCF2F1;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #DCF2F1;
-}
-
-.navbar-light .navbar-toggler:focus,
-.navbar-light .navbar-toggler:active {
-  outline: none;
-  box-shadow: none;
 }
 
 footer {
@@ -78,16 +60,6 @@ nav {
 nav li {
   display: inline;
   margin-right: 15px;
-}
-
-/* Override Bootstrap styles for navbar links */
-nav a {
-  color: #DCF2F1;
-  text-decoration: none;
-}
-
-nav b {
-  background-color: #DCF2F1;
 }
 
 .navbar-logo {
