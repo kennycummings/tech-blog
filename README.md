@@ -37,7 +37,7 @@ dotenv: Environment variable management.
 Tutor Armando Osorio provided valuable insights and guidance during the development process.
 
 ## Deployment Link
-https://kc-tech-blog.onrender.com/
+https://kc-tech-blog-db-cb2d30434890.herokuapp.com/
 
 ## Screenshot
 <img src="./public/images/kc-tech-blog-screenshot.png" alt="Homepage">
